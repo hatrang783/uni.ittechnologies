@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
-  # GET /products or /products.json
   def index
-    @products = Product.all
+    if params[:query].present?
+      query = "%#{ActiveRecord::Base.sanitize_sql_like(params[:query])}%"
+      @products = Product.where('productname LIKE ?', query)
+    else
+      @products = Product.all
+    end
   end
-
+  
   # GET /products/1 or /products/1.json
   def show
   end
@@ -65,6 +69,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:productname, :price, :stock, :category_id, :brand_id)
+      params.require(:product).permit(:productname, :price, :stock, :category_id, :brand_id, :image)
     end
 end
