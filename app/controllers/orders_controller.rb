@@ -3,12 +3,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
-    @order_details = @order.order_details.includes(:product)
-  end
-
-  def show
     @order = Order.find(params[:id])
-    @order_details = @order.order_details
+    @order_details = @order.order_details.includes(:product)
   end
   
   # GET /orders or /orders.json

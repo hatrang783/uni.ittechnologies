@@ -4,26 +4,45 @@
 
     <div class="flex-wrap lg:flex items-center lg:space-x-3">
       <%= link_to orders_path, class: button_class(theme: "transparent") do %>
-      All Orders
+        All Orders
       <% end %>
-      <%= link_to edit_order_path(@order), class: button_class(theme:"primary") do %>
-      Edit
+      <%= link_to edit_order_path(@order), class: button_class(theme: "primary") do %>
+        Edit
       <% end %>
     </div>
   </div>
 
   <ul class="text-slate-700">
-      <li>
-        <p class="font-semibold">Orderdate:</p>
-        <p><%= @order.orderdate %></p>
-      </li>
-      <li>
-        <p class="font-semibold">Customer:</p>
-        <p><%= @order.customer.customername %></p>
-      </li>
-      <li>
-        <p class="font-semibold">Staff:</p>
-        <p><%= @order.staff.username %></p>
-      </li>
+    <li>
+      <p class="font-semibold">Order Date:</p>
+      <p><%= @order.orderdate %></p>
+    </li>
+    <li>
+      <p class="font-semibold">Customer:</p>
+      <p><%= @order.customer.customername %></p>
+    </li>
+    <li>
+      <p class="font-semibold">Staff:</p>
+      <p><%= @order.staff.username %></p>
+    </li>
+    <li>
+      <p class="font-semibold">Order Details:</p>
+      <table class="table-auto border-collapse border border-slate-300 w-full">
+        <thead class="bg-slate-100">
+          <tr>
+            <th class="border border-slate-300 font-semibold p-2">Product</th>
+            <th class="border border-slate-300 font-semibold p-2">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_details.each do |order_detail| %>
+            <tr>
+              <td class="border border-slate-300 p-2"><%= order_detail.product.productname %></td>
+              <td class="border border-slate-300 p-2"><%= order_detail.quantity %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </li>
   </ul>
 </div>
