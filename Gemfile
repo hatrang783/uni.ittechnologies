@@ -80,3 +80,7 @@ gem "dotenv-rails"
 
 gem 'chartkick'
 gem 'groupdate'
+
+gem 'rails_admin'
+gem "sassc-rails"
+gem "sassc-rails"

@@ -1,20 +1,26 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :set_order, only: %i[show edit update destroy]
 
+  # GET /orders/1 or /orders/1.json
+  def show
+    @order_details = @order.order_details.includes(:product)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+  end
+  
   # GET /orders or /orders.json
   def index
     @orders = Order.all
   end
 
-  # GET /orders/1 or /orders/1.json
-  def show
-  end
-
   # GET /orders/new
   def new
     @order = Order.new
+    @order.order_details.build # Đảm bảo rằng mỗi order có ít nhất một order detail
   end
-
   # GET /orders/1/edit
   def edit
   end
@@ -58,13 +64,15 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:orderdate, :customer_id, :staff_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def order_params
+    params.require(:order).permit(:orderdate, :customer_id, :staff_id)
+  end
+  
 end

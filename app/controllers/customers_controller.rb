@@ -15,6 +15,17 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
 
+  def get_customer_by_phone
+    phone = params[:phone]
+    customer = Customer.find_by(phone: phone)
+
+    if customer
+      render json: { success: true, customer_id: customer.id }
+    else
+      render json: { success: false }
+    end
+  end
+
   # GET /customers/1/edit
   def edit
   end

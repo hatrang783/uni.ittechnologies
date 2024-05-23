@@ -1,8 +1,9 @@
-
-<%= form_tag(products_path, method: :get) do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Search by product name" %>
-  <%= submit_tag 'Search' %>
-<% end %>
+<div class="container mx-auto px-4">
+  <%= form_tag(products_path, method: :get) do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search by product name" %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</div>
 
 
 <div class="container mx-auto px-4">

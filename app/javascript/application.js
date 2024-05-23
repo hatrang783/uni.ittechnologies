@@ -7,3 +7,5 @@ import "@rails/actiontext"
 //= require Chart.bundle
 //= require chartkick
 
+
+  
