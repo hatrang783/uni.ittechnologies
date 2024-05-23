@@ -5,9 +5,17 @@ class OrderDetail < ApplicationRecord
   
   after_create :decrement_product_stock
 
+  validate :quantity_cannot_exceed_stock
+
   private
 
   def decrement_product_stock
     product.decrement!(:stock, quantity)
+  end
+
+  def quantity_cannot_exceed_stock
+    if quantity.present? && quantity > product.stock
+      errors.add(:quantity, "cannot exceed the product's stock")
+    end
   end
 end
