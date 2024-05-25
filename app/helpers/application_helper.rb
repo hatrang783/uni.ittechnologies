@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def format_price(price)
+    number_to_currency(price, unit: 'VND', separator: ',', delimiter: '.', format: "%n %u", precision: 0)
+  end
+
   def flash_classes(flash_type)
     flash_base = "px-2 py-4 mx-auto font-sans font-medium text-center text-white"
     {

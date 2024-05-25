@@ -14,24 +14,24 @@
 
   <ul class="text-slate-700">
       <li>
-        <p class="font-semibold">Productname:</p>
-        <p><%= @product.productname %></p>
+        <p><span class="font-semibold">Productname:</span>
+        <%= @product.productname %></p>
       </li>
       <li>
-        <p class="font-semibold">Price:</p>
-        <p><%= @product.price %></p>
+        <p><span class="font-semibold">Price:</span>
+        <%= format_price(@product.price) %></p>
       </li>
       <li>
-        <p class="font-semibold">Stock:</p>
-        <p><%= @product.stock %></p>
+        <p><span class="font-semibold">Stock:</span>
+        <%= @product.stock %></p>
       </li>
       <li>
-        <p class="font-semibold">Category:</p>
-        <p><%= @product.category.categoryname %></p>
+      <p><span class="font-semibold">Category:</span>
+        <%= @product.category.categoryname %></p>
       </li>
       <li>
-        <p class="font-semibold">Brand:</p>
-        <p><%= @product.brand.brandname %></p>
+      <p><span class="font-semibold">Brand:</span>
+        <%= @product.brand.brandname %></p>
       </li>
       <li>
       <p>

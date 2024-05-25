@@ -31,14 +31,18 @@
         <thead class="bg-slate-100">
           <tr>
             <th class="border border-slate-300 font-semibold p-2">Product</th>
+            <th class="border border-slate-300 font-semibold p-2">Unit price</th>
             <th class="border border-slate-300 font-semibold p-2">Quantity</th>
+            <th class="border border-slate-300 font-semibold p-2">Total price</th>
           </tr>
         </thead>
         <tbody>
           <% @order_details.each do |order_detail| %>
             <tr>
               <td class="border border-slate-300 p-2"><%= order_detail.product.productname %></td>
+              <td class="border border-slate-300 p-2"><%= format_price(order_detail.product.price) %></td>
               <td class="border border-slate-300 p-2"><%= order_detail.quantity %></td>
+              <td class="border border-slate-300 p-2"><%= format_price(order_detail.product.price*order_detail.quantity) %></td>
             </tr>
           <% end %>
         </tbody>
