@@ -16,7 +16,7 @@
           <%= form.text_field :brandname, class: input_class %>
       </div>
 
-<%= form.submit class: button_class(theme: 'primary') %>
+<%= form.submit style: "background-color: #E98A9F; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem;" %>
 
 <% if brand.persisted? %>
 <%= link_to "Cancel", brand, class: "text-neutral-700 underline inline-block ml-3" %>

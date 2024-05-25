@@ -6,7 +6,7 @@
       <%= link_to brands_path, class: button_class(theme: "transparent") do %>
       All Brands
       <% end %>
-      <%= link_to edit_brand_path(@brand), class: button_class(theme:"primary") do %>
+      <%= link_to edit_brand_path(@brand), style: "background-color: #E98A9F; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem;" do %>
       Edit
       <% end %>
     </div>
@@ -14,8 +14,8 @@
 
   <ul class="text-slate-700">
       <li>
-        <p class="font-semibold">Brandname:</p>
-        <p><%= @brand.brandname %></p>
+        <p><span class="font-semibold">Brandname:</span>
+        <%= @brand.brandname %></p>
       </li>
   </ul>
 </div>

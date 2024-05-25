@@ -44,7 +44,8 @@ module ApplicationHelper
       primary: "primary",
       secondary: "secondary",
       transparent: "transparent",
-      dark: "dark"
+      dark: "dark",
+      custom: "custom" # Add custom theme
     }
 
     case theme
@@ -56,6 +57,8 @@ module ApplicationHelper
       "bg-transparent hover:bg-gray-100 text-gray-700"
     when themes[:dark]
       "bg-gray-800 text-white shadow-sm hover:bg-gray-900"
+    when themes[:custom]
+      "bg-customPink hover:bg-customPinkHover text-black" # Use custom colors
     else
       "bg-white border border-gray-300 shadow-sm hover:bg-gray-100"
     end
