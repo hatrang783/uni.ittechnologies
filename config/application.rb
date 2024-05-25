@@ -19,6 +19,6 @@ module NguyenDucAnh0123456789LibrarySystemFinalSubmission
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << "https://web-production-e5e8.up.railway.app/"
+    config.hosts << "glamour-production.up.railway.app"
   end
 end
